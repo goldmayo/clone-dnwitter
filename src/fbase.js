@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,4 +14,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const authService = getAuth(firebaseApp);
+export function signInEmailPassword(auth, email, password) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
+export function createUserEmailPassword(auth, email, password) {
+  return createUserWithEmailAndPassword(auth, email, password);
+}
 export default authService;
